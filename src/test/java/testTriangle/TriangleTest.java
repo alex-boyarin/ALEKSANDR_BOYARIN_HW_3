@@ -1,10 +1,11 @@
-package test_triangle;
+package testTriangle;
 
-import data_provider.DataProviderForTriangle;
+import dataProvider.DataProviderForTriangle;
 import org.testng.annotations.Test;
 import triangle.Triangle;
 
 import static org.testng.Assert.*;
+import static squareTriangleUtil.SquareOfTriangle.*;
 
 public class TriangleTest {
     Triangle triangle;
@@ -60,8 +61,6 @@ public class TriangleTest {
         assertEquals(triangle.getMessage(), expectedMessage, "Wrong message returned!!!");
     }
 
-//    @Test(dataProviderClass = DataProviderForTriangle.class, dataProvider = "dataNumberForTriangleOrdynary")
-
     @Test(dataProviderClass = DataProviderForTriangle.class, dataProvider = "dataForTriangleOrdinary")
     public void testDetectTriangleOrdinary(double sideA, double sideB, double sideC, int expected) {
         triangle = new Triangle(sideA, sideB, sideC);
@@ -80,7 +79,24 @@ public class TriangleTest {
         assertEquals(triangle.detectTriangle(), expected, "Wrong number returned!!!");
     }
 
-    @Test(enabled = false)
-    public void testGetSquare() {
+    @Test(dataProviderClass = DataProviderForTriangle.class, dataProvider = "dataForSquareRectangular")
+    public void testGetSquareTriangleRectangular(double sideA, double sideB, double sideC) {
+        triangle = new Triangle(sideA, sideB, sideC);
+        double expected = squareRectangular(sideA, sideB, sideC);
+        assertEquals(expected, triangle.getSquare());
+    }
+
+    @Test(dataProviderClass = DataProviderForTriangle.class, dataProvider = "dataForSquareEquilateralOrIsosceles")
+    public void testGetSquareTriangleEquilateralOrIsosceles(double sideA, double sideB, double sideC) {
+        triangle = new Triangle(sideA, sideB, sideC);
+        double expected = squareEquilateralOrIsosceles(sideA, sideB, sideC);
+        assertEquals(expected, triangle.getSquare());
+    }
+
+    @Test(dataProviderClass = DataProviderForTriangle.class, dataProvider = "dataForSquareOrdinary")
+    public void testGetSquareTriangleOrdinary(double sideA, double sideB, double sideC) {
+        triangle = new Triangle(sideA, sideB, sideC);
+        double expected = squareOrdinary(sideA, sideB, sideC);
+        assertEquals(expected, triangle.getSquare());
     }
 }

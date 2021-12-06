@@ -1,4 +1,4 @@
-package data_provider;
+package dataProvider;
 
 import org.testng.annotations.DataProvider;
 
@@ -37,6 +37,7 @@ public class DataProviderForTriangle {
         return new Object[][]{
                 {0, 1, 1, "a<=0"},
                 {1, 0, 1, "b<=0"},
+
                 {1, 1, 0, "c<=0"}
         };
     }
@@ -102,6 +103,34 @@ public class DataProviderForTriangle {
                 {3, 4, 5, 8},
                 {5, 4, 3, 8},
                 {3, 5, 4, 8}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] dataForSquareRectangular() {
+        return new Object[][]{
+                {3, 4, 5},
+                {5, 4, 3},
+                {3, 5, 4}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] dataForSquareEquilateralOrIsosceles() {
+        return new Object[][]{
+                {3, 3, 3},
+                {3, 3, 4},
+                {4, 3, 3},
+                {3, 4, 3}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] dataForSquareOrdinary() {
+        return new Object[][]{
+                {3, 7, 6},
+                {7, 6, 3},
+                {6, 3, 7}
         };
     }
 }
