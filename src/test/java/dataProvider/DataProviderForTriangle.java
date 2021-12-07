@@ -37,7 +37,6 @@ public class DataProviderForTriangle {
         return new Object[][]{
                 {0, 1, 1, "a<=0"},
                 {1, 0, 1, "b<=0"},
-
                 {1, 1, 0, "c<=0"}
         };
     }
