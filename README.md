@@ -1,1 +1,1 @@
-# ALEKSANDR_BOYARIN_HW_3
+# Triangle_test
